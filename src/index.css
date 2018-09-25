@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.quiz_app_inner {
+	margin: auto;
+	max-width: 730px;
+	width: 100%;
+}
+
+.sLang-btn {
+	margin: 0 0 15px 0;
+}
