@@ -4,7 +4,6 @@ import "babel-polyfill";
 import "./index.css";
 import App from "./App";
 import {Provider} from "react-redux";
-import {HashRouter as Router} from "react-router-dom";
 import registerServiceWorker from "./registerServiceWorker";
 import {store} from "./store";
 

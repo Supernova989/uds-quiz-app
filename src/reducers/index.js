@@ -1,8 +1,8 @@
 import {combineReducers} 		from "redux";
-import configReducer 			from "./config.reducer";
+import quizReducer 				from "./quiz.reducer";
 
 const AllReducers = combineReducers({
-	config: configReducer,
+	quiz: quizReducer,
 });
 
 export default AllReducers;

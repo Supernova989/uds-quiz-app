@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Question from "./components/question";
-import {selectLanguage} from "./actions/config.action";
+import {selectLanguage} from "./actions/quiz.action";
 import Button from "react-bootstrap/lib/Button";
 import Well from "react-bootstrap/lib/Well";
 
@@ -19,8 +19,8 @@ class App extends Component {
 	onSelectLanguage(e) {
 		e.persist();
 		console.dir(e.target);
-		console.log(e.target.dataset.title);
-		this.props.dispatch(selectLanguage(e.target.dataset.title));
+		console.log(e.target.dataset.code);
+		this.props.dispatch(selectLanguage(e.target.dataset.code));
 	}
 	
 	render() {
@@ -30,13 +30,13 @@ class App extends Component {
 					<h1 className="App-title">Выберите тест</h1>
 				</div>
 				
-				{!this.props.config.title ?
+				{!this.props.quiz.title ?
 					<ul className="list-unstyled">
 						{this.state.data.map(item => {
 							return (
 								<li key={item.code}>
 									<Button onClick={this.onSelectLanguage}
-											data-title={item.title}
+											data-code={item.code}
 											bsStyle="primary"
 											block={true}
 											className="sLang-btn"
@@ -55,7 +55,7 @@ class App extends Component {
 
 function mapStatesToProps(state) {
 	return {
-		config: state.config
+		quiz: state.quiz
 	}
 }
 
