@@ -24,3 +24,12 @@ body {
 .answer_wrap .badge {
 	margin-right: 5px;
 }
+
+.answer_wrap button {
+	text-align: left;
+}
+
+button:focus {
+	outline: none !important;
+}
+

@@ -2,8 +2,10 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import Alert from "react-bootstrap/lib/Alert";
 import Badge from "react-bootstrap/lib/Badge";
+import Button from "react-bootstrap/lib/Button";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
+import Well from "react-bootstrap/lib/Well";
 
 class Question extends Component {
 	constructor(props) {
@@ -19,26 +21,28 @@ class Question extends Component {
 				<Row>
 					<Col sm={6} xs={12}>
 						<div className="answer_wrap">
-							<Badge>A</Badge> {q.options.a1}
+							<Button bsStyle="primary" block><Badge>A</Badge> {q.options.a1}</Button>
 						</div>
 					</Col>
 					<Col sm={6} xs={12}>
 						<div className="answer_wrap">
-							<Badge>B</Badge> {q.options.a2}
+							<Button bsStyle="primary" block><Badge>B</Badge> {q.options.a2}</Button>
 						</div>
 					</Col>
 					<Col sm={6} xs={12}>
 						<div className="answer_wrap">
-							<Badge>C</Badge> {q.options.a3}
+							<Button bsStyle="primary" block><Badge>C</Badge> {q.options.a3}</Button>
 						</div>
 					</Col>
 					<Col sm={6} xs={12}>
 						<div className="answer_wrap">
-							<Badge>D</Badge> {q.options.a4}
+							<Button bsStyle="primary" block><Badge>D</Badge> {q.options.a4}</Button>
 						</div>
 					</Col>
 				</Row>
-			
+				
+				<hr/>
+				<Button bsStyle="danger">Завершить тест</Button>
 			</section>
 		)
 	}
