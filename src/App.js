@@ -4,13 +4,11 @@ import Question from "./components/question";
 import { selectLanguage } from "./actions/quiz.action";
 import Button from "react-bootstrap/lib/Button";
 import Well from "react-bootstrap/lib/Well";
+import ResultList from "./components/result_list";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			data: window.quizData,
-		};
 		
 		this.onSelectLanguage = this.onSelectLanguage.bind(this);
 	}
@@ -21,6 +19,8 @@ class App extends Component {
 	}
 	
 	render() {
+		const showResults = this.props.quiz.currentQuestion + 1 > this.props.quiz.questions.length
+			&& this.props.quiz.questions.length > 0;
 		return (
 			<Well className="quiz_app_inner">
 				
@@ -30,7 +30,7 @@ class App extends Component {
 							<h1 className="App-title">Выберите тест</h1>
 						</div>
 						<ul className="list-unstyled">
-							{this.state.data.map(item => {
+							{this.props.quiz.data.map(item => {
 								return (
 									<li key={item.code}>
 										<Button onClick={this.onSelectLanguage}
@@ -45,7 +45,7 @@ class App extends Component {
 							}
 						</ul>
 					</section>
-					: <Question/>
+					: showResults ? <ResultList /> : <Question/>
 				}
 			</Well>
 		);

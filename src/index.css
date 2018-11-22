@@ -29,6 +29,15 @@ body {
 	text-align: left;
 }
 
+.question-actions {
+	display: flex;
+	justify-content: space-between;
+}
+
+.text-line-through {
+	text-decoration: line-through;
+}
+
 button:focus {
 	outline: none !important;
 }

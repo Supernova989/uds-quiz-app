@@ -22,82 +22,66 @@
 </noscript>
 
 <script id="data">
+	var quizData = 'W3sidGl0bGUiOiLQkNC90LPQu9C40LnRgdC60LjQuSDRj9C30YvQuiIsImNvZGUiOiJjMDAxIiwicXVlc3Rpb25zIjpbeyJpZCI6MSwidGl0bGUiOiJIZSBpcyBfX18gZHJpdmVyIiwib3B0aW9ucyI6eyJhMSI6Ii0iLCJhMiI6ImEiLCJhMyI6InRoZSIsImE0IjoiYmFkIn0sImFuc3dlciI6ImEyIn0seyJpZCI6MiwidGl0bGUiOiJIb3cgX19fIHlvdT8iLCJvcHRpb25zIjp7ImExIjoiaXMiLCJhMiI6ImFyZSIsImEzIjoiLSIsImE0IjoiYW0ifSwiYW5zd2VyIjoiYTIifSx7ImlkIjozLCJ0aXRsZSI6IllvdSBfX18gdGhpcyB3b3JrIGJlY2F1c2Ugd2UgbmVlZCB0aGUgcmVzdWx0cyByaWdodCBub3chIiwib3B0aW9ucyI6eyJhMSI6ImRpZCIsImEyIjoic2hvdWxkIGhhdmUgZG9uZSIsImEzIjoid2lsbCBkbyIsImE0IjoiZmFpbGVkIn0sImFuc3dlciI6ImEyIn1dfSx7InRpdGxlIjoi0KDRg9GB0YHQutC40Lkg0Y/Qt9GL0LoiLCJjb2RlIjoiYzAwMiIsInF1ZXN0aW9ucyI6W3siaWQiOjEsInRpdGxlIjoi0J/QvtC00YHQutCw0LbQuNGC0LUgX19fINGB0LXQudGH0LDRgSDQstGA0LXQvNC10L3QuCIsIm9wdGlvbnMiOnsiYTEiOiLRgdC60L7Qu9GM0LrQviIsImEyIjoi0LPQtNC1IiwiYTMiOiLQutCw0LoiLCJhNCI6ItGH0YLQviJ9LCJhbnN3ZXIiOiJhMSJ9LHsiaWQiOjIsInRpdGxlIjoi0JrQsNC6IF9fXyDQt9C+0LLRg9GCPyIsIm9wdGlvbnMiOnsiYTEiOiLRgtC10LHRjyIsImEyIjoi0YHQtdCx0Y8iLCJhMyI6ItGC0YPQtNCwIiwiYTQiOiLRh9GC0L4ifSwiYW5zd2VyIjoiYTEifSx7ImlkIjozLCJ0aXRsZSI6ItCh0L7Qu9C90YbQtSDRjdGC0L4gX19fIiwib3B0aW9ucyI6eyJhMSI6ItC30LLQtdC30LTQsCIsImEyIjoi0L/Qu9Cw0L3QtdGC0LAiLCJhMyI6ItCw0YHRgtC10YDQvtC40LQiLCJhNCI6ItC+0LHQu9C+0LzQvtC6In0sImFuc3dlciI6ImExIn1dfV0=';
+	
+	/*
 	var quizData = [
 		{
-			title: 'Английский язык',
-			code: 'c001',
-			questions: [
+			"title": "Английский язык",
+			"code": "c001",
+			"questions": [
 				{
-					'id': 1,
-					'title': 'He is ___ driver',
-					'options': {
-						'a1': '-',
-						'a2': 'a',
-						'a3': 'the',
-						'a4': 'bad',
-					}
+					"id": 1,
+					"title": "He is ___ driver",
+					"options":
+						{"a1": "-", "a2": "a", "a3": "the", "a4": "bad"},
+					"answer": "a2"
 				},
 				{
-					'id': 2,
-					'title': 'How ___ you?',
-					'options': {
-						'a1': 'is',
-						'a2': 'are',
-						'a3': '-',
-						'a4': 'am',
-					}
+					"id": 2,
+					"title": "How ___ you?",
+					"options":
+						{"a1": "is", "a2": "are", "a3": "-", "a4": "am"},
+					"answer": "a2"
 				},
 				{
-					'id': 3,
-					'title': 'You ___ this work because we need the results right now!',
-					'options': {
-						'a1': 'did',
-						'a2': 'should have done',
-						'a3': 'will do',
-						'a4': 'failed',
-					}
-				},
-			
+					"id": 3,
+					"title": "You ___ this work because we need the results right now!",
+					"options":
+						{"a1": "did", "a2": "should have done", "a3": "will do", "a4": "failed"},
+					"answer": "a2"
+				}
 			]
 		},
 		{
-			title: 'Русский язык',
-			code: 'c002',
-			questions: [
+			"title": "Русский язык",
+			"code": "c002",
+			"questions": [
 				{
-					'id': 1,
-					'title': 'Подскажите ___ сейчас времени',
-					'options': {
-						'a1': 'сколько',
-						'a2': 'где',
-						'a3': 'как',
-						'a4': 'что',
-					}
+					"id": 1,
+					"title": "Подскажите ___ сейчас времени",
+					"options":
+						{"a1": "сколько", "a2": "где", "a3": "как", "a4": "что"},
+					"answer": "a1"
 				},
 				{
-					'id': 2,
-					'title': 'Как ___ зовут?',
-					'options': {
-						'a1': 'тебя',
-						'a2': 'себя',
-						'a3': 'туда',
-						'a4': 'что',
-					}
+					"id": 2,
+					"title": "Как ___ зовут?",
+					"options":
+						{"a1": "тебя", "a2": "себя", "a3": "туда", "a4": "что"},
+					"answer": "a1"
 				},
 				{
-					'id': 3,
-					'title': 'Солнце это ___',
-					'options': {
-						'a1': 'звезда',
-						'a2': 'планета',
-						'a3': 'астероид',
-						'a4': 'обломок',
-					}
-				},
-			
+					"id": 3,
+					"title": "Солнце это ___",
+					"options":
+						{"a1": "звезда", "a2": "планета", "a3": "астероид", "a4": "обломок"},
+					"answer": "a1"
+				}
 			]
-		},
+		}
 	];
+	 */
 </script>
 
 <div id="appMountPoint"></div>
