@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import cloneDeep from "lodash/cloneDeep";
 import Alert from "react-bootstrap/lib/Alert";
-import Badge from "react-bootstrap/lib/Badge";
 import Button from "react-bootstrap/lib/Button";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
-import Well from "react-bootstrap/lib/Well";
 import { store } from '../store';
 import { abort_quiz } from "../actions/quiz.action";
 
@@ -24,6 +22,8 @@ class ResultList extends Component {
 		}).questions);
 		// console.log("here =>", question);
 		
+		let correct_counter = 0;
+		
 		questions.forEach(question => {
 			const correct_answer = question.options[question.answer];
 			let option_given = null;
@@ -37,26 +37,32 @@ class ResultList extends Component {
 			
 			if (!isCorrect) {
 				question.title = question.title.replace(/(_)+/,
-					`<span class="text-danger text-line-through">${question.options[option_given]}</span>
-					<span class="text-success"><b>${correct_answer}</b></span>`
+					`<span class="wrong-answer">${question.options[option_given]}</span>
+					<span class="correct-answer"><b>${correct_answer}</b></span>`
 				);
 			} else {
 				question.title = question.title.replace(/(_)+/,
-					`<span className="text-success"><b>${correct_answer}</b></span>`
+					`<span className="correct-answer"><b>${correct_answer}</b></span>`
 				);
+				correct_counter += 1;
 			}
 			question.isCorrect = isCorrect;
 		});
 		
 		return (
 			<section>
-				<h2>Результат теста</h2>
+				<h3>Тест завершен!</h3>
+				<h4>Правильный ответ дан на {correct_counter}/{questions.length} вопросов.</h4>
+				<br />
 				{questions.map(question => {
 					const key = question.id;
 					return (
-						<Alert>
-							<div key={key} dangerouslySetInnerHTML={{__html: question.title}}/>
-						</Alert>
+						<div key={key}>
+							<span>Ответ #{question.id}</span>
+							<Alert bsStyle={question.isCorrect ? 'success' : 'danger'}>
+								<div  dangerouslySetInnerHTML={{__html: question.title}}/>
+							</Alert>
+						</div>
 					)
 				})}
 				

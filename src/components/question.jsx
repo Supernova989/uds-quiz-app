@@ -5,7 +5,6 @@ import Badge from "react-bootstrap/lib/Badge";
 import Button from "react-bootstrap/lib/Button";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
-import Well from "react-bootstrap/lib/Well";
 import { store } from '../store';
 import { abort_quiz, accept_answer } from "../actions/quiz.action";
 
@@ -23,10 +22,10 @@ class Question extends Component {
 	
 	render() {
 		const q = this.props.quiz.questions[this.props.quiz.currentQuestion];
+		
 		return (
 			<section>
 				<Alert>{q.title}</Alert>
-				
 				<Row>
 					<Col sm={6} xs={12}>
 						<div className="answer_wrap">

@@ -5,6 +5,7 @@ import { selectLanguage } from "./actions/quiz.action";
 import Button from "react-bootstrap/lib/Button";
 import Well from "react-bootstrap/lib/Well";
 import ResultList from "./components/result_list";
+import ProgressBar from "react-bootstrap/lib/ProgressBar";
 
 class App extends Component {
 	constructor(props) {
@@ -19,10 +20,18 @@ class App extends Component {
 	}
 	
 	render() {
-		const showResults = this.props.quiz.currentQuestion + 1 > this.props.quiz.questions.length
+		const showResults = this.props.quiz.currentQuestion === this.props.quiz.questions.length
 			&& this.props.quiz.questions.length > 0;
+		
+		let progress = 0;
+		if (this.props.quiz.currentQuestion > 0) {
+			progress = 100 * this.props.quiz.currentQuestion / this.props.quiz.questions.length;
+		}
+		
 		return (
 			<Well className="quiz_app_inner">
+				
+				{this.props.quiz.title && <ProgressBar active now={progress} />}
 				
 				{!this.props.quiz.title ?
 					<section>
@@ -47,10 +56,13 @@ class App extends Component {
 					</section>
 					: showResults ? <ResultList /> : <Question/>
 				}
+				
 			</Well>
 		);
 	}
 }
+
+
 
 function mapStatesToProps(state) {
 	return {

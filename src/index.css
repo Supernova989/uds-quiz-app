@@ -34,10 +34,21 @@ body {
 	justify-content: space-between;
 }
 
-.text-line-through {
+.wrong-answer {
 	text-decoration: line-through;
+	display: inline-block;
+	background: #ffb5b53b;
+	padding: 0 5px;
+	color: #a94442;
 }
 
+.correct-answer {
+	color: #3c763d;;
+}
+
+.alert-danger .correct-answer {
+	color: #a94442;
+}
 button:focus {
 	outline: none !important;
 }
